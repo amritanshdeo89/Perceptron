@@ -1,5 +1,5 @@
 from utils.model import Perceptron
-from utils.all_utils import prepare_data
+from utils.all_utils import prepare_data, save_model, save_plot
 import pandas as pd
 import numpy as np
 AND = {
@@ -18,3 +18,6 @@ EPOCHS = 10
 
 model = Perceptron(eta=ETA, epochs=EPOCHS)
 model.fit(X,y)
+
+save_model(model, filename="and.model")
+save_plot(df,"and.png",model )
