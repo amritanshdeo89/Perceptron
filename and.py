@@ -5,6 +5,15 @@ import numpy as np
 
 def main(data, modelName, plotName, eta, epochs):
 
+    """
+      :param data: dataset
+      :param modelName: name of the model
+      :param plotName: name of the plot
+      :param eta: values between 0 to 1
+      :param epochs: number of epochs
+
+    """
+
    
     df = pd.DataFrame(data)
 

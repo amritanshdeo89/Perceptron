@@ -6,7 +6,18 @@ from matplotlib.colors import ListedColormap
 import os
 
 
+
 def prepare_data(df):
+
+  """it is used to separate the dependent and independent variables
+
+  Args:
+      df (pd.DataFrame): its  a dataset   
+
+  Returns:
+     tuple: it returns the tuple of dependent and independent variables
+  """
+
   X = df.drop("y", axis=1)
   y = df['y']
 
@@ -16,6 +27,14 @@ def prepare_data(df):
 
 
 def save_model(model, filename):
+
+  """This saves the trainde model
+
+  Args:
+      model (python object): trained model
+      filename (str): Path to save the trained model
+  """
+
   model_dir = 'models'
   os.makedirs(model_dir, exist_ok = True) ## if model directory doesnot exist
   filePath = os.path.join(model_dir, filename) ## model/filename
@@ -24,7 +43,19 @@ def save_model(model, filename):
 
 
 def save_plot(df, file_name, model):
+
+  """
+    :param df : this a dataset
+    :param file_name : its a path to save the file to
+    :param model : trained model
+  """
+
   def _create_base_plot(df):
+
+    """
+      :param df : this a dataset
+    """
+
     df.plot(kind="scatter", x="X1", y="X2", c="y", s=100, cmap="winter")
     plt.axhline(y=0, color="black", linestyle="--", linewidth=1)
     plt.axvline(x=0, color="black", linestyle="--", linewidth=1)
@@ -32,6 +63,14 @@ def save_plot(df, file_name, model):
     figure.set_size_inches(10, 8)
 
   def _plot_decision_regions(X, y, classfier, resolution=0.02):
+
+    """
+      :param X: input
+      :param y: input
+      :param classfier: model class
+      :param resolution: resolution, Defaults to 0.02.
+    """
+
     colors = ("red", "blue", "lightgreen", "gray", "cyan")
     cmap = ListedColormap(colors[: len(np.unique(y))])
 
