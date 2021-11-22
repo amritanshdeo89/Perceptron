@@ -25,8 +25,8 @@ def main(data, modelName, plotName, eta, epochs):
     model = Perceptron(eta=eta, epochs=epochs)
     model.fit(X,y)
 
-    save_model(model, filename="and.model")
-    save_plot(df,"and.png",model )
+    save_model(model, filename=modelName)
+    save_plot(df,plotName,model )
 
 
 if __name__ == '__main__':
